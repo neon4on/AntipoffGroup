@@ -1,0 +1,43 @@
+.App {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  background-color: #512689;
+  color: #f8f8f8;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.buttonExit {
+  justify-content: flex-end;
+  border-radius: 8px;
+  border: 1px;
+  padding: 8px 16px;
+  margin: 20px;
+}
+
+.aboutUs {
+  padding: 20px;
+}
+
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex > div {
+  margin: 0 1rem 2rem 1rem;
+  text-align: center;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}
