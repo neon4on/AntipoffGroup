@@ -4,17 +4,23 @@
   text-align: center;
 }
 
-.header {
+header {
   display: flex;
   background-color: #512689;
   color: #f8f8f8;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-content: center;
 }
 
-.buttonExit {
-  justify-content: flex-end;
+.exit {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.button {
   border-radius: 8px;
   border: 1px;
   padding: 8px 16px;
@@ -25,11 +31,17 @@
   padding: 20px;
 }
 
+h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
 .cart {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .flex > div {
@@ -40,4 +52,19 @@
 img {
   display: inline-block;
   max-width: 100%;
+  border-radius: 80px;
+}
+
+.cart-items {
+  display: grid;
+  width: 305px;
+  padding: 36px 80px 20px 80px;
+  gap: 20px;
+  justify-content: space-around;
+  justify-items: stretch;
+}
+
+.optionally {
+  display: flex;
+  justify-content: center;
 }

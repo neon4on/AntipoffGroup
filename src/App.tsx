@@ -1,10 +1,9 @@
 import * as React from 'react';
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
   const [users, setUsers] = React.useState([]);
+
   const f = async () => {
     const res = await fetch('https://reqres.in/api/users/');
     const json = await res.json();
@@ -12,41 +11,46 @@ function App() {
   };
   React.useEffect(() => {
     f();
+    console.log(users);
   }, []);
+
   return (
     <div className="App">
-      <div className="header">
-        <div className="aboutUs">
-          <h1>Наша команда</h1>
-          <p>
-            Это опытные специалисты, хорошо разбирающиеся во всех задачах, которые ложатся на их
-            плечи, и умеющие находить выход из любых, даже самых сложных ситуаций.{' '}
-          </p>
+      <header>
+        <div className="header">
+          <div className="aboutUs">
+            <div className="exit">
+              <button className="button button-exit">Выход</button>
+            </div>
+            <h1>Наша команда</h1>
+            <p>
+              Это опытные специалисты, хорошо разбирающиеся во всех задачах, которые ложатся на их
+              плечи, и умеющие находить выход из любых, даже самых сложных ситуаций.{' '}
+            </p>
+          </div>
         </div>
-
-        <div className="exit">
-          <button className="buttonExit">Выход</button>
+      </header>
+      <main>
+        <div className="cart">
+          {users.length &&
+            users.map((user) => {
+              return (
+                <div key={user['id']} className="cart-items">
+                  <img key={user['avatar']} src={user['avatar']} />
+                  <p>
+                    <strong>{user['first_name']}</strong>
+                  </p>
+                </div>
+              );
+            })}
         </div>
-      </div>
+      </main>
 
-      <div className="cart">
-        {users.length &&
-          users.map((user) => {
-            return (
-              <div key={user['id']}>
-                <p>
-                  <strong>{user['first_name']}</strong>
-                </p>
-                <p>{user['email']}</p>
-                <img key={user['avatar']} src={user['avatar']} />
-              </div>
-            );
-          })}
-      </div>
-
-      <div className="optionally">
-        <button>Показать ещё</button>
-      </div>
+      <footer>
+        <div className="optionally">
+          <button className="button optionally-button">Показать ещё</button>
+        </div>
+      </footer>
     </div>
   );
 }
