@@ -5,19 +5,8 @@
 }
 
 header {
-  display: flex;
   background-color: #512689;
   color: #f8f8f8;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  align-content: center;
-}
-
-.exit {
-  display: flex;
-  flex-direction: row-reverse;
 }
 
 .button {
@@ -29,6 +18,10 @@ header {
 
 .aboutUs {
   padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 h1 {
@@ -37,6 +30,7 @@ h1 {
 }
 
 .cart {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -58,6 +52,8 @@ img {
 .cart-items {
   display: grid;
   width: 305px;
+  border-radius: 20px;
+  background-color: #fff;
   padding: 36px 80px 20px 80px;
   gap: 20px;
   justify-content: space-around;
