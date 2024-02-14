@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../../App.css';
-
+import User from './User';
+import { Link } from 'react-router-dom';
 function Home() {
   const [users, setUsers] = React.useState([]);
 
@@ -9,11 +10,16 @@ function Home() {
     const json = await res.json();
     setUsers(json.data);
   };
+
   React.useEffect(() => {
     f();
     console.log(users);
   }, []);
 
+  const currentUser = (currentId: any) => {
+    console.log(1);
+    return <User key={currentId} {...currentId} />;
+  };
   return (
     <div className="App">
       <header>
@@ -21,9 +27,9 @@ function Home() {
           <div className="aboutUs">
             <div className="exit">
               <form action="/Login">
-                <button className="button button-exit" type="submit">
-                  Выход
-                </button>
+                <Link to="/login">
+                  <button className="button button-exit">Выход</button>
+                </Link>
               </form>
             </div>
             <h1>Наша команда</h1>
@@ -40,10 +46,12 @@ function Home() {
             users.map((user) => {
               return (
                 <div key={user['id']} className="cart-items">
-                  <img key={user['avatar']} src={user['avatar']} />
-                  <p>
-                    <strong>{user['first_name']}</strong>
-                  </p>
+                  <Link to={{ pathname: `/user/:${user['id']}` }}>
+                    <img key={user['avatar']} src={user['avatar']} />
+                    <p>
+                      <strong>{user['first_name']}</strong>
+                    </p>
+                  </Link>
                 </div>
               );
             })}
@@ -52,7 +60,9 @@ function Home() {
 
       <footer>
         <div className="optionally">
-          <button className="button optionally-button">Показать ещё</button>
+          <Link to="/">
+            <button className="button optionally-button">Показать ещё</button>
+          </Link>
         </div>
       </footer>
     </div>
