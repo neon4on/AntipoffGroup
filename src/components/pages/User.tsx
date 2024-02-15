@@ -1,52 +1,45 @@
 import * as React from 'react';
-import '../../App.css';
-function user(id: any) {
-  const [info, setInfo] = React.useState([]);
+import style from '../User.module.scss';
+import { useParams } from 'react-router-dom';
 
-  const f = async (id: any) => {
-    const res = await fetch(`https://reqres.in/api/users/${id}`);
-    const json = await res.json();
-    setInfo(json.data);
-  };
+function user() {
+  const { id } = useParams();
+
+  const [info, setInfo] = React.useState();
 
   React.useEffect(() => {
-    f(id);
-    console.log(info);
+    fetch(`https://reqres.in/api/users/${id}`)
+      .then((res) => res.json())
+      .then((data) => setInfo(data));
+    // const ff = f(id);
+    // console.log(ff);
   }, []);
 
   return (
-    <div className="wrapper">
+    <div className={style.wrapper}>
       <header>
-        <div className="header">
-          <div className="aboutUs">
-            <div className="exit">
-              <button className="button button-exit">Выход</button>
+        <div className={style.header}>
+          <div className={style.aboutUs}>
+            <div className={style.cart_items}>
+              <img src={info?.data.avatar} />
+              <p>
+                <strong>
+                  {info?.data.first_name} {info?.data.last_name}
+                </strong>
+              </p>
+              <div className={style.exit}>
+                <button className={style.button}>Выход</button>
+              </div>
             </div>
-            {info.length &&
-              info.map((info) => {
-                return (
-                  <div key={info['id']} className="cart-items">
-                    <img key={info['avatar']} src={info['avatar']} />
-                    <p>
-                      <strong>{info['first_name']}</strong>
-                    </p>
-                  </div>
-                );
-              })}
           </div>
         </div>
       </header>
       <main>
-        <div className="cart">
-          {info.length &&
-            info.map((info) => {
-              return (
-                <div key={info['id']} className="cart-items">
-                  <p> {info['first_name']}</p>
-                  <strong>{info['email']}</strong>
-                </div>
-              );
-            })}
+        <div className={style.cart}>
+          <div className={style.cart_items}>
+            <p> {info?.data.first_name}</p>
+            <strong>{info?.data.email}</strong>
+          </div>
         </div>
       </main>
     </div>

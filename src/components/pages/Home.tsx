@@ -1,6 +1,5 @@
 import * as React from 'react';
-import '../../App.css';
-import User from './User';
+import styles from '../../App.module.scss';
 import { Link } from 'react-router-dom';
 function Home() {
   const [users, setUsers] = React.useState([]);
@@ -16,19 +15,15 @@ function Home() {
     console.log(users);
   }, []);
 
-  const currentUser = (currentId: any) => {
-    console.log(1);
-    return <User key={currentId} {...currentId} />;
-  };
   return (
-    <div className="App">
+    <div className={styles.App}>
       <header>
-        <div className="header">
-          <div className="aboutUs">
-            <div className="exit">
+        <div className={styles.header}>
+          <div className={styles.aboutUs}>
+            <div className={styles.exit}>
               <form action="/Login">
                 <Link to="/login">
-                  <button className="button button-exit">Выход</button>
+                  <button className={styles.button}>Выход</button>
                 </Link>
               </form>
             </div>
@@ -41,12 +36,12 @@ function Home() {
         </div>
       </header>
       <main>
-        <div className="cart">
+        <div className={styles.cart}>
           {users.length &&
             users.map((user) => {
               return (
-                <div key={user['id']} className="cart-items">
-                  <Link to={{ pathname: `/user/:${user['id']}` }}>
+                <div key={user['id']} className={styles.cart_items}>
+                  <Link to={{ pathname: `/user/${user['id']}` }}>
                     <img key={user['avatar']} src={user['avatar']} />
                     <p>
                       <strong>{user['first_name']}</strong>
@@ -59,9 +54,9 @@ function Home() {
       </main>
 
       <footer>
-        <div className="optionally">
+        <div className={styles.optionally}>
           <Link to="/">
-            <button className="button optionally-button">Показать ещё</button>
+            <button className={styles.button}>Показать ещё</button>
           </Link>
         </div>
       </footer>

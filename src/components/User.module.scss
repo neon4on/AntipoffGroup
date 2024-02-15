@@ -1,0 +1,66 @@
+.App {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.header {
+  background-color: #512689;
+  color: black;
+}
+
+.button {
+  border-radius: 8px;
+  border: 1px;
+  padding: 8px 16px;
+  margin: 20px;
+}
+
+.aboutUs {
+  padding: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.cart {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.flex > div {
+  margin: 0 1rem 2rem 1rem;
+  text-align: center;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 80px;
+}
+
+.cart_items {
+  display: grid;
+  width: 305px;
+  border-radius: 20px;
+  background-color: #fff;
+  padding: 36px 80px 20px 80px;
+  gap: 20px;
+  justify-content: space-around;
+  justify-items: stretch;
+}
+
+.optionally {
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './App.css';
 import Home from './components/pages/Home';
 import User from './components/pages/User';
 import Login from './components/pages/Login';
@@ -10,7 +9,7 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/User" element={<User />} />
+          <Route path="/User/:id" element={<User />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<Home />} />
         </Routes>

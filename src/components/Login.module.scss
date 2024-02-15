@@ -1,0 +1,45 @@
+body {
+  background-color: rgb(250, 250, 250);
+  color: #000000;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin-top: 100px;
+  width: 375px;
+  height: 520px;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.h1 {
+  font-size: 64px;
+}
+
+.h2 {
+  font-size: 20px;
+}
+
+.input {
+  font-size: 16px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.button_next {
+  background-color: blueviolet;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  height: 30px;
+}
